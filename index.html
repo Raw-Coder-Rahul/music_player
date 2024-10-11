@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="music-player">
+            <nav>
+                <div class="circle">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="circle" onclick="toggleDropdown()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+
+            <!-- Dropdown for Playlists -->
+            <div class="dropdown" id="dropdown">
+                <ul>
+                    <li><button onclick="loadPlaylist('anger')">Anger</button></li>
+                    <li><button onclick="loadPlaylist('calm')">Calm</button></li>
+                    <li><button onclick="loadPlaylist('dark')">Dramatic</button></li>
+                    <li><button onclick="loadPlaylist('dramatic')">Dramatic</button></li>
+                    <li><button onclick="loadPlaylist('happy')">Happy</button></li>
+                    <li><button onclick="loadPlaylist('inspirational')">Inspirational</button></li>
+                    <li><button onclick="loadPlaylist('romantic')">Romantic</button></li>
+                    <li><button onclick="loadPlaylist('sad')">Sad</button></li>
+                </ul>
+            </div>
+            
+
+            <div class="play_list">
+                <img src="music/anger/images/image-angry-demon-lion-terrifying-flames-dark-background-wildlife-animals-illustration-generative-ai_132416-7316.avif" alt="" class="song-img">
+                <h1>Alpha Mission</h1>
+                <p>Jimena Contreras</p>
+
+                <audio id="song">
+                    <source src="music/anger/Alpha Mission - Jimena Contreras.mp3" type="audio/mpeg">
+                </audio>
+                <div class="time-info">
+                    <span id="current-time">0:00</span>
+                    <br>
+                    <input type="range" value="0" min="0" max="100" id="progress">
+                    <span id="total-time">0:00</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div><i class="fa-solid fa-backward" id="backward" onclick="previousSong()"></i></div>
+                <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
+                <div><i class="fa-solid fa-forward" id="forward" onclick="nextSong()"></i></div>
+            </div>
+            
+
+            <div class="volume">
+                <i class="fa-solid fa-volume-high" id="volume"></i>
+                <input type="range" min="0" max="100" id="volumeControl">
+                <span id="volumeLabel">100%</span>
+            </div>
+            
+
+            <input type="checkbox" id="theme-toggle" style="cursor: pointer;"> <p>Change Theme</p></>
+        </div>
+    </div>
+    <script src="controls.js"></script>
+    <script src="playlist.js"></script>
+</body>
